@@ -7,8 +7,8 @@ class SalesUser(HttpUser):
     def get_sales(self):
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNTkwMDAzNSwianRpIjoiYzA4MzRiYjAtNmRmZC00MzczLTlmYTktM2Q5YmIyZjk4MTQzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OTUsIm5iZiI6MTcwNTkwMDAzNSwiZXhwIjoxNzA4NDkyMDM1fQ.41qawHivs_LRtr9bwzC3Q4Lmkb4A2mYVnVtLqGPi4x0",
-            "X-CSRF-TOKEN": "IjFkZGU0ZDhjZmQ2NGZmYzBmZWI5MWIxODA4NWRlOWEwODlkOTFjZTYi.Za34Aw.Jz9gu9h4gw0SQKymY8LctPB_PUI"
+            "Authorization": "",
+            "X-CSRF-TOKEN": ""
             }
         self.client.get('/sales/', headers=headers)
 
@@ -16,8 +16,8 @@ class SalesUser(HttpUser):
     def post_sale(self):
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNTkwMDAzNSwianRpIjoiYzA4MzRiYjAtNmRmZC00MzczLTlmYTktM2Q5YmIyZjk4MTQzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OTUsIm5iZiI6MTcwNTkwMDAzNSwiZXhwIjoxNzA4NDkyMDM1fQ.41qawHivs_LRtr9bwzC3Q4Lmkb4A2mYVnVtLqGPi4x0",
-            "X-CSRF-TOKEN": "IjFkZGU0ZDhjZmQ2NGZmYzBmZWI5MWIxODA4NWRlOWEwODlkOTFjZTYi.Za34Aw.Jz9gu9h4gw0SQKymY8LctPB_PUI"
+            "Authorization": "",
+            "X-CSRF-TOKEN": ""
             }
         data = {
             'table_no': 1,
@@ -26,22 +26,14 @@ class SalesUser(HttpUser):
         }
         self.client.post('/sales/', json=data, headers=headers)
 
-    # @task
-    # def delete_sale(self):
-    #     headers = {
-    #         "Content-Type": "application/json",
-    #         "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNTkwMDAzNSwianRpIjoiYzA4MzRiYjAtNmRmZC00MzczLTlmYTktM2Q5YmIyZjk4MTQzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OTUsIm5iZiI6MTcwNTkwMDAzNSwiZXhwIjoxNzA4NDkyMDM1fQ.41qawHivs_LRtr9bwzC3Q4Lmkb4A2mYVnVtLqGPi4x0",
-    #         "X-CSRF-TOKEN": "IjFkZGU0ZDhjZmQ2NGZmYzBmZWI5MWIxODA4NWRlOWEwODlkOTFjZTYi.Za34Aw.Jz9gu9h4gw0SQKymY8LctPB_PUI"
-    #                }
-    #     sale_id = 1
-    #     self.client.delete(f'/sales/{sale_id}', headers=headers)
+
 
     @task
     def get_daily_sales(self):
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNTkwMDAzNSwianRpIjoiYzA4MzRiYjAtNmRmZC00MzczLTlmYTktM2Q5YmIyZjk4MTQzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OTUsIm5iZiI6MTcwNTkwMDAzNSwiZXhwIjoxNzA4NDkyMDM1fQ.41qawHivs_LRtr9bwzC3Q4Lmkb4A2mYVnVtLqGPi4x0",
-            "X-CSRF-TOKEN": "IjFkZGU0ZDhjZmQ2NGZmYzBmZWI5MWIxODA4NWRlOWEwODlkOTFjZTYi.Za34Aw.Jz9gu9h4gw0SQKymY8LctPB_PUI"
+            "Authorization": "",
+            "X-CSRF-TOKEN": ""
             }
         params = {'store_id': 1, 'date': '2022-01-23'}  # replace with valid values
         self.client.get('/sales/daily', params=params, headers=headers)
@@ -50,8 +42,8 @@ class SalesUser(HttpUser):
     def get_period_sales(self):
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNTkwMDAzNSwianRpIjoiYzA4MzRiYjAtNmRmZC00MzczLTlmYTktM2Q5YmIyZjk4MTQzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OTUsIm5iZiI6MTcwNTkwMDAzNSwiZXhwIjoxNzA4NDkyMDM1fQ.41qawHivs_LRtr9bwzC3Q4Lmkb4A2mYVnVtLqGPi4x0",
-            "X-CSRF-TOKEN": "IjFkZGU0ZDhjZmQ2NGZmYzBmZWI5MWIxODA4NWRlOWEwODlkOTFjZTYi.Za34Aw.Jz9gu9h4gw0SQKymY8LctPB_PUI"
+            "Authorization": "",
+            "X-CSRF-TOKEN": ""
             }
         params = {'store_id': 1, 'start': '2022-01-01', 'end': '2022-01-31'}  # replace with valid values
         self.client.get('/sales/period', params=params, headers=headers)
